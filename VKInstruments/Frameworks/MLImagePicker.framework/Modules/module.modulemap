@@ -1,0 +1,10 @@
+framework module MLImagePicker {
+  umbrella header "MLImagePicker.h"
+
+  export *
+  module * { export * }
+}
+
+module MLImagePicker.Swift {
+    header "MLImagePicker-Swift.h"
+}
