@@ -104,8 +104,11 @@ extension Router {
         presentViewController(presenter.view!)
     }
 
-    func presentImagePicker(completion: ((_ url: URL?) -> Void)?) {
+    func presentImagePicker(completion: ((_ fileUrl: URL?) -> Void)?) {
 
+     //   let imagePicker = ImagePicker()
+     //   imagePicker.picker.sourceType = .camera
+        
         MLImagePicker().presentInController(self, completion: { (fileUrl) in
             completion?(fileUrl)
         })

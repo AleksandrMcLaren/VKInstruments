@@ -78,7 +78,7 @@ extension FunctionsViewController: UITableViewDataSource, UITableViewDelegate {
         
         cell.textLabel?.text = function.title
         cell.accessoryType = function.selected ? .checkmark : .none
-        
+
         return cell
     }
     

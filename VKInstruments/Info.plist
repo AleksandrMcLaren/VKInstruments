@@ -42,7 +42,7 @@
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 	<key>NSMicrophoneUsageDescription</key>
-	<string>We need access to your record audio</string>
+	<string>We need access to your record audio, so that we can do operations on it.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>We need access to your camera roll and photo library, so that we can do operations on it.</string>
 	<key>NSCameraUsageDescription</key>

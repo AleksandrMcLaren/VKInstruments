@@ -19,10 +19,10 @@
 		1F68FCC41F27212800559232 /* AudioModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F68FCC31F27212800559232 /* AudioModel.swift */; };
 		1F68FCCC1F27289900559232 /* AudioRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F68FCC81F27289900559232 /* AudioRecorder.swift */; };
 		1F68FCCD1F27289900559232 /* LameConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F68FCCA1F27289900559232 /* LameConverter.m */; };
+		1F8FF1781F2F69EB00891F65 /* MLImagePicker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F8FF1771F2F69EB00891F65 /* MLImagePicker.framework */; };
+		1F8FF1791F2F69F300891F65 /* MLImagePicker.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1F8FF1771F2F69EB00891F65 /* MLImagePicker.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		1FC538A91F28C5E100AE168C /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC538A81F28C5E100AE168C /* ImagePicker.swift */; };
 		1FD7E40B1F2B4F5600D4D28A /* lame.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FD7E40A1F2B4F5600D4D28A /* lame.framework */; };
-		1FD7E4141F2B6AE400D4D28A /* MLImagePicker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FD7E4131F2B6AE400D4D28A /* MLImagePicker.framework */; };
-		1FD7E4151F2B6AF400D4D28A /* MLImagePicker.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1FD7E4131F2B6AE400D4D28A /* MLImagePicker.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		1FFF64311F0CC94100187090 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FFF64301F0CC94100187090 /* AppDelegate.swift */; };
 		1FFF64331F0CC94100187090 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FFF64321F0CC94100187090 /* ViewController.swift */; };
 		1FFF64361F0CC94100187090 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1FFF64341F0CC94100187090 /* Main.storyboard */; };
@@ -38,7 +38,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				1FD7E4151F2B6AF400D4D28A /* MLImagePicker.framework in CopyFiles */,
+				1F8FF1791F2F69F300891F65 /* MLImagePicker.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -59,10 +59,10 @@
 		1F68FCC91F27289900559232 /* LameConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LameConverter.h; sourceTree = "<group>"; };
 		1F68FCCA1F27289900559232 /* LameConverter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LameConverter.m; sourceTree = "<group>"; };
 		1F68FCCB1F27289900559232 /* VKInstruments-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "VKInstruments-Bridging-Header.h"; sourceTree = "<group>"; };
+		1F8FF1771F2F69EB00891F65 /* MLImagePicker.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MLImagePicker.framework; path = VKInstruments/Frameworks/MLImagePicker.framework; sourceTree = "<group>"; };
 		1F9F7C581F29B911009E23E3 /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = System/Library/Frameworks/Photos.framework; sourceTree = SDKROOT; };
 		1FC538A81F28C5E100AE168C /* ImagePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		1FD7E40A1F2B4F5600D4D28A /* lame.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = lame.framework; path = VKInstruments/Frameworks/lame.framework; sourceTree = "<group>"; };
-		1FD7E4131F2B6AE400D4D28A /* MLImagePicker.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MLImagePicker.framework; path = VKInstruments/Frameworks/MLImagePicker.framework; sourceTree = "<group>"; };
 		1FFF642D1F0CC94100187090 /* VKInstruments.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VKInstruments.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FFF64301F0CC94100187090 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1FFF64321F0CC94100187090 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -79,7 +79,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1FD7E40B1F2B4F5600D4D28A /* lame.framework in Frameworks */,
-				1FD7E4141F2B6AE400D4D28A /* MLImagePicker.framework in Frameworks */,
+				1F8FF1781F2F69EB00891F65 /* MLImagePicker.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -139,7 +139,7 @@
 		1F9F7C571F29B911009E23E3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				1FD7E4131F2B6AE400D4D28A /* MLImagePicker.framework */,
+				1F8FF1771F2F69EB00891F65 /* MLImagePicker.framework */,
 				1FD7E40A1F2B4F5600D4D28A /* lame.framework */,
 				1F9F7C581F29B911009E23E3 /* Photos.framework */,
 			);

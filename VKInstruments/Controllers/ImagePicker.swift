@@ -11,7 +11,7 @@ import Photos
 
 class ImagePicker {
 
-    open var sourceType: UIImagePickerControllerSourceType = .photoLibrary
+    open var picker: UIImagePickerController!
     
     fileprivate var parentController: UIViewController?
     fileprivate var completion: ((_ url: URL?) -> Void)?
@@ -19,24 +19,11 @@ class ImagePicker {
     fileprivate var strongSelf: ImagePicker?
     fileprivate var imagePickerDelegate = MLImagePickerDelegate()
     
-    open func presentInController(_ controller: UIViewController, completion: ((_ fileUrl: URL?) -> Void)?) {
-
-        parentController = controller
-        self.completion = completion
-
-        imagePickerDelegate.completion = { (fileUrl) in
-            self.fileUrl = fileUrl
-            self.dismiss()
-        }
+    public init() {
         
-        let picker = UIImagePickerController()
-        picker.delegate = imagePickerDelegate
-        picker.sourceType = .camera
+        picker = UIImagePickerController()
+        picker.sourceType = .photoLibrary
         picker.mediaTypes = ["public.image", "public.movie"]
-        
-        parentController?.present(picker, animated: true) {
-            self.strongSelf = self;
-        }
     }
     
     deinit {
@@ -44,9 +31,26 @@ class ImagePicker {
         print("deinit")
     }
     
+    open func presentInController(_ controller: UIViewController, completion: ((_ fileUrl: URL?) -> Void)?) {
+        
+        parentController = controller
+        self.completion = completion
+        
+        imagePickerDelegate.completion = { [weak self] (fileUrl) in
+            self?.fileUrl = self?.copyToCacheFileURL(fileUrl)
+            self?.dismiss()
+        }
+        
+        picker.delegate = imagePickerDelegate
+        
+        parentController?.present(picker, animated: true) {
+            self.strongSelf = self;
+        }
+    }
+    
     func dismiss () {
         
-        print("ImagePicker file path: \(self.fileUrl?.absoluteString ?? "")")
+        print("\(String(describing: self)) file path: \(self.fileUrl?.absoluteString ?? "")")
         
         DispatchQueue.main.async {
             
@@ -54,6 +58,38 @@ class ImagePicker {
                 self.completion?(self.fileUrl)
                 self.strongSelf = nil
             })
+        }
+    }
+    
+    func copyToCacheFileURL (_ fileUrl: URL?) -> (URL?) {
+        
+        do {
+            
+            guard let fileName = fileUrl?.lastPathComponent
+                else { return nil }
+            
+            var cacheUrl = try FileManager.default.url(for: .cachesDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
+            cacheUrl.appendPathComponent(String(describing: self))
+
+            if FileManager.default.fileExists(atPath: cacheUrl.path) == false {
+                // create directory
+                try FileManager.default.createDirectory(at: cacheUrl, withIntermediateDirectories: true, attributes: nil)
+            }
+            
+            cacheUrl.appendPathComponent(fileName)
+            
+            if FileManager.default.fileExists(atPath: cacheUrl.path) == true {
+                // remove file
+                try FileManager.default.removeItem(at: cacheUrl)
+            }
+            
+            try FileManager.default.copyItem(at: fileUrl!, to: cacheUrl)
+            
+            return cacheUrl
+            
+        } catch let error {
+            print("Error: \(error.localizedDescription)")
+            return nil
         }
     }
 }
@@ -71,7 +107,7 @@ class MLImagePickerDelegate: NSObject, UIImagePickerControllerDelegate, UINaviga
             fileUrlWithAsset(asset) { (fileUrl) in
                 self.completion?(fileUrl)
             }
- 
+            
         } else if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
             // camera photo
             PHPhotoLibrary.shared().performChanges({
@@ -87,6 +123,7 @@ class MLImagePickerDelegate: NSObject, UIImagePickerControllerDelegate, UINaviga
                     }
                     
                 } else {
+                    
                     self.completion?(nil)
                 }
             }
@@ -104,7 +141,9 @@ class MLImagePickerDelegate: NSObject, UIImagePickerControllerDelegate, UINaviga
                     self.fileUrlWithAsset(asset) { (fileUrl) in
                         self.completion?(fileUrl)
                     }
+                    
                 } else {
+                    
                     self.completion?(nil)
                 }
             }
