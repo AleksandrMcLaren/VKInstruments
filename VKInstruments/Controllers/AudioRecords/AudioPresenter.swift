@@ -37,7 +37,7 @@ class AudioPresenter: AudioPresentation {
     }
     
     fileprivate var timer: Timer?
-    fileprivate let audioRecorder = AudioRecorder()
+    fileprivate let audioRecorder = MLAudioRecorder()
     
     deinit {
         print(" ")
@@ -45,7 +45,7 @@ class AudioPresenter: AudioPresentation {
 
     @objc func needsUpdateView() {
         
-        interactor.recordedTime = audioRecorder.recordedTime
+        interactor.currentTime = audioRecorder.currentTime
         interactor.fetchData()
     }
     

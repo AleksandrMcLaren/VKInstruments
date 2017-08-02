@@ -10,6 +10,7 @@
 		1F1A79E61F3072EE005A3282 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1F1A79E81F3072EE005A3282 /* InfoPlist.strings */; };
 		1F1A79ED1F31A6A7005A3282 /* MLImagePicker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F1A79EC1F31A6A7005A3282 /* MLImagePicker.framework */; };
 		1F1A79EE1F31A6DF005A3282 /* MLImagePicker.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1F1A79EC1F31A6A7005A3282 /* MLImagePicker.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1F1A79F01F31B1A1005A3282 /* MLAudioRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1A79EF1F31B1A1005A3282 /* MLAudioRecorder.swift */; };
 		1F20EB4D1F0CD25D002A24EB /* VKAuthorization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F20EB4C1F0CD25D002A24EB /* VKAuthorization.swift */; };
 		1F20EB511F0CDC55002A24EB /* FunctionsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F20EB501F0CDC55002A24EB /* FunctionsPresenter.swift */; };
 		1F20EB531F0CDD05002A24EB /* FunctionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F20EB521F0CDD05002A24EB /* FunctionsViewController.swift */; };
@@ -20,7 +21,6 @@
 		1F68FCC01F27208400559232 /* AudioPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F68FCBF1F27208400559232 /* AudioPresenter.swift */; };
 		1F68FCC21F27210100559232 /* AudioInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F68FCC11F27210100559232 /* AudioInteractor.swift */; };
 		1F68FCC41F27212800559232 /* AudioModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F68FCC31F27212800559232 /* AudioModel.swift */; };
-		1F68FCCC1F27289900559232 /* AudioRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F68FCC81F27289900559232 /* AudioRecorder.swift */; };
 		1F68FCCD1F27289900559232 /* LameConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F68FCCA1F27289900559232 /* LameConverter.m */; };
 		1F8FF1801F306B3C00891F65 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1F8FF1821F306B3C00891F65 /* Localizable.strings */; };
 		1FC538A91F28C5E100AE168C /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC538A81F28C5E100AE168C /* ImagePicker.swift */; };
@@ -48,6 +48,7 @@
 		1F1A79E71F3072EE005A3282 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1F1A79E91F3072F3005A3282 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1F1A79EC1F31A6A7005A3282 /* MLImagePicker.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MLImagePicker.framework; path = VKInstruments/Frameworks/MLImagePicker.framework; sourceTree = "<group>"; };
+		1F1A79EF1F31B1A1005A3282 /* MLAudioRecorder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MLAudioRecorder.swift; sourceTree = "<group>"; };
 		1F20EB4C1F0CD25D002A24EB /* VKAuthorization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VKAuthorization.swift; sourceTree = "<group>"; };
 		1F20EB501F0CDC55002A24EB /* FunctionsPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FunctionsPresenter.swift; sourceTree = "<group>"; };
 		1F20EB521F0CDD05002A24EB /* FunctionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FunctionsViewController.swift; sourceTree = "<group>"; };
@@ -59,7 +60,6 @@
 		1F68FCBF1F27208400559232 /* AudioPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioPresenter.swift; sourceTree = "<group>"; };
 		1F68FCC11F27210100559232 /* AudioInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioInteractor.swift; sourceTree = "<group>"; };
 		1F68FCC31F27212800559232 /* AudioModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioModel.swift; sourceTree = "<group>"; };
-		1F68FCC81F27289900559232 /* AudioRecorder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioRecorder.swift; sourceTree = "<group>"; };
 		1F68FCC91F27289900559232 /* LameConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LameConverter.h; sourceTree = "<group>"; };
 		1F68FCCA1F27289900559232 /* LameConverter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LameConverter.m; sourceTree = "<group>"; };
 		1F68FCCB1F27289900559232 /* VKInstruments-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "VKInstruments-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -127,7 +127,7 @@
 		1F68FCC71F27289900559232 /* AudioRecorder */ = {
 			isa = PBXGroup;
 			children = (
-				1F68FCC81F27289900559232 /* AudioRecorder.swift */,
+				1F1A79EF1F31B1A1005A3282 /* MLAudioRecorder.swift */,
 				1F68FCC91F27289900559232 /* LameConverter.h */,
 				1F68FCCA1F27289900559232 /* LameConverter.m */,
 				1F68FCCB1F27289900559232 /* VKInstruments-Bridging-Header.h */,
@@ -266,10 +266,10 @@
 				1F20EB531F0CDD05002A24EB /* FunctionsViewController.swift in Sources */,
 				1F20EB571F0CF29F002A24EB /* Functions.swift in Sources */,
 				1F68FCC21F27210100559232 /* AudioInteractor.swift in Sources */,
+				1F1A79F01F31B1A1005A3282 /* MLAudioRecorder.swift in Sources */,
 				1FFF64441F0CC9DA00187090 /* Router.swift in Sources */,
 				1F20EB5A1F0E46EB002A24EB /* AudioViewController.swift in Sources */,
 				1F20EB4D1F0CD25D002A24EB /* VKAuthorization.swift in Sources */,
-				1F68FCCC1F27289900559232 /* AudioRecorder.swift in Sources */,
 				1F20EB511F0CDC55002A24EB /* FunctionsPresenter.swift in Sources */,
 				1F68FCCD1F27289900559232 /* LameConverter.m in Sources */,
 				1F298A5E1F0F9CCD006CB40A /* AppLib.swift in Sources */,

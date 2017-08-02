@@ -16,7 +16,7 @@ protocol AudioUseCase: class {
 class AudioInteractor: AudioUseCase {
 
     weak var output: AudioInteractorOutput!
-    var recordedTime : TimeInterval = 0
+    var currentTime : TimeInterval = 0
     
     fileprivate let data: AudioModel = AudioModel()
     
@@ -38,13 +38,13 @@ class AudioInteractor: AudioUseCase {
         var seconds: Int = 0
         var ms: Int = 0
         
-        if recordedTime != 0 {
+        if currentTime != 0 {
             
             buttonsEnabled = true
             
-            minutes = Int(recordedTime) / 60 % 60
-            seconds = Int(recordedTime) % 60
-            ms = Int((recordedTime.truncatingRemainder(dividingBy: 1)) * 100)
+            minutes = Int(currentTime) / 60 % 60
+            seconds = Int(currentTime) % 60
+            ms = Int((currentTime.truncatingRemainder(dividingBy: 1)) * 100)
         }
 
         data.buttonsEnabled = buttonsEnabled

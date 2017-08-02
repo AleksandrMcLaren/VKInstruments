@@ -134,8 +134,8 @@ class AudioViewController: UIViewController {
         if gesture.state == .began {
 
             presenter.startRecordPressed()
-        }
-        else if gesture.state == .ended {
+            
+        } else if gesture.state == .ended {
             
             presenter.stopRecordPressed()
         }
