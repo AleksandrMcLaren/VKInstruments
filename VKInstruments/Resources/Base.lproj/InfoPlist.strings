@@ -1,0 +1,11 @@
+/* 
+  InfoPlist.strings
+  VKInstruments
+
+  Created by Aleksandr on 01/08/2017.
+
+*/
+
+"NSPhotoLibraryUsageDescription" = "We need access to your camera roll and photo library, so that we can do operations on it.";
+"NSCameraUsageDescription" = "We need access to your camera roll and photo library, so that we can do operations on it.";
+"NSMicrophoneUsageDescription" = "We need access to your microphone, so that we can do operations on it.";

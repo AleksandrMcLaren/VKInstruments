@@ -1,0 +1,12 @@
+/* 
+  InfoPlist.strings
+  VKInstruments
+
+  Created by Aleksandr on 01/08/2017.
+
+*/
+
+//"CFBundleDisplayName" = "";
+"NSPhotoLibraryUsageDescription" = "Вам нужнен доступ к фото, изменить можно в настройках.";
+"NSCameraUsageDescription" = "Вам нужнен доступ к камере, изменить можно в настройках.";
+"NSMicrophoneUsageDescription" = "Вам нужнен доступ к микрофону, изменить можно в настройках.";
