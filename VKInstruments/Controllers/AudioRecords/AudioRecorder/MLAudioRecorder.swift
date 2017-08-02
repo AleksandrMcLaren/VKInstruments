@@ -15,7 +15,7 @@ open class MLAudioRecorder {
     open var noAccessRecordPermission: (() -> Void)?
     open var fileUrl: URL? {
         didSet {
-            self.configureAudioPlayer(fileUrl)
+            self.configureAudioPlayer()
         }
     }
     
@@ -29,7 +29,7 @@ open class MLAudioRecorder {
             } else if audioPlayer?.isPlaying == true {
                 _currentTime = audioPlayer!.currentTime
             } else if let _ = fileUrl, let audioPlayer = audioPlayer {
-                 _currentTime = audioPlayer.duration
+                _currentTime = audioPlayer.duration
             }
             
             return _currentTime
@@ -40,17 +40,63 @@ open class MLAudioRecorder {
         }
     }
     
-    fileprivate var recordingSession: AVAudioSession!
+    fileprivate let recordingSession = AVAudioSession.sharedInstance()
+    
     fileprivate var audioRecorder: AVAudioRecorder?
-    fileprivate var audioRecorderDelegate: MLAudioRecorderDelegate?
+    fileprivate lazy var audioRecorderDelegate: MLAudioRecorderDelegate = {
+    
+        let _audioRecorderDelegate = MLAudioRecorderDelegate()
+        _audioRecorderDelegate.completion = { [weak self] (recorder, success) in
+    
+            if success == true {
+    
+                DispatchQueue(label: "AudioRecorder.audioRecorderDidFinishRecording").sync {
+    
+                    if let filePath = LameConverter.convertFromWav(toMp3: recorder.url.path) {
+    
+                        let mp3FileUrl = URL.init(fileURLWithPath: filePath)
+    
+                        DispatchQueue.main.async {
+                            self?.fileUrl = mp3FileUrl
+                            self?.finishRecording?(mp3FileUrl, true)
+                        }
+    
+                    } else {
+    
+                        self?.reset()
+                    }
+                }
+    
+            } else {
+    
+                self?.reset()
+            }
+        }
+        
+        return _audioRecorderDelegate
+    }()
+    
     fileprivate var audioPlayer: AVAudioPlayer?
-    fileprivate var audioPlayerDelegate: MLAudioPlayerDelegate?
+    fileprivate lazy var audioPlayerDelegate: MLAudioPlayerDelegate = {
+        
+        let _audioPlayerDelegate = MLAudioPlayerDelegate()
+        _audioPlayerDelegate.completion = { [weak self] (player, success) in
+            
+            DispatchQueue.main.async {
+                self?.finishPlaying?()
+            }
+        }
+        
+        return _audioPlayerDelegate
+    }()
 
     public init () {
-
-        configureAudioRecorderDelegate()
-        configureAudioPlayerDelegate()
+        
         requestRecordPermission()
+    }
+    
+    deinit {
+        print(" ")
     }
     
     // MARK: - Control
@@ -96,12 +142,12 @@ open class MLAudioRecorder {
     open func reset () {
         
         currentTime = 0
-        configureAudioPlayer(nil)
+        fileUrl = nil
     }
     
     // MARK: - Configure audio
 
-    fileprivate func configureAudioPlayer(_ fileUrl: URL?) {
+    fileprivate func configureAudioPlayer() {
         
         do {
             
@@ -118,22 +164,11 @@ open class MLAudioRecorder {
             
         }
     }
-    
-    fileprivate func configureAudioPlayerDelegate () {
-     
-        audioPlayerDelegate = MLAudioPlayerDelegate()
-        audioPlayerDelegate?.completion = { [weak self] (player, success) in
-            
-            DispatchQueue.main.async {
-                self?.finishPlaying?()
-            }
-        }
-    }
-    
+
     fileprivate func createRecorder () {
         
         let settings = [
-            // wav
+            // wav format
             AVFormatIDKey: Int(kAudioFormatLinearPCM),
             AVLinearPCMBitDepthKey: 16,
             AVLinearPCMIsBigEndianKey: false,
@@ -157,41 +192,8 @@ open class MLAudioRecorder {
         }
     }
     
-    fileprivate func configureAudioRecorderDelegate () {
-        
-        audioRecorderDelegate = MLAudioRecorderDelegate()
-        audioRecorderDelegate?.completion = { [weak self] (recorder, success) in
-            
-            if success == true {
-                
-                DispatchQueue(label: "AudioRecorder.audioRecorderDidFinishRecording").sync {
-                    
-                    if let filePath = LameConverter.convertFromWav(toMp3: recorder.url.path) {
-                        
-                        let mp3FileUrl = URL.init(fileURLWithPath: filePath)
-                        
-                        DispatchQueue.main.async {
-                            self?.configureAudioPlayer(mp3FileUrl)
-                            self?.finishRecording?(mp3FileUrl, true)
-                        }
-                        
-                    } else {
-                        
-                        self?.reset()
-                    }
-                }
-                
-            } else {
-                
-                self?.reset()
-            }
-        }
-    }
-    
     fileprivate func requestRecordPermission () {
-        
-        recordingSession = AVAudioSession.sharedInstance()
-        
+
         do {
             try! recordingSession.setCategory(AVAudioSessionCategoryPlayAndRecord, with:.defaultToSpeaker)
             try recordingSession.setActive(true)
@@ -219,7 +221,7 @@ open class MLAudioRecorder {
 
 // MARK: - Delegates
 
-class MLAudioRecorderDelegate: NSObject, AVAudioRecorderDelegate {
+fileprivate class MLAudioRecorderDelegate: NSObject, AVAudioRecorderDelegate {
 
     var completion: ((_ recorder: AVAudioRecorder, _ success: Bool) -> Void)?
     
@@ -228,7 +230,7 @@ class MLAudioRecorderDelegate: NSObject, AVAudioRecorderDelegate {
     }
 }
 
-class MLAudioPlayerDelegate: NSObject, AVAudioPlayerDelegate {
+fileprivate class MLAudioPlayerDelegate: NSObject, AVAudioPlayerDelegate {
     
     var completion: ((_ player: AVAudioPlayer, _ success: Bool) -> Void)?
     

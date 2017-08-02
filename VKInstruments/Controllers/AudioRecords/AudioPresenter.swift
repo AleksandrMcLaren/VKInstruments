@@ -50,7 +50,7 @@ class AudioPresenter: AudioPresentation {
     }
     
     func configureAudioRecorder () {
-        
+
         audioRecorder.fileUrl = fileUrl
     
         audioRecorder.finishRecording = { [weak self] (fileUrl, success) -> Void in
@@ -72,12 +72,12 @@ class AudioPresenter: AudioPresentation {
             self?.needsUpdateView()
         }
         
-        audioRecorder.noAccessRecordPermission = {
+        audioRecorder.noAccessRecordPermission = { [weak self] () -> Void in
             
             let alertView = UIAlertController(title: "Message", message: "This app does not have access to your microphone. You can enable access in Privacy Settings", preferredStyle: .alert)
             let action = UIAlertAction(title: "Ok", style: .default, handler:nil)
             alertView.addAction(action)
-            self.view?.present(alertView, animated: true, completion: nil)
+            self?.view?.present(alertView, animated: true, completion: nil)
         }
     }
     
