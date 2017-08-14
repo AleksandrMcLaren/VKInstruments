@@ -23,7 +23,6 @@
 		1F68FCC41F27212800559232 /* AudioModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F68FCC31F27212800559232 /* AudioModel.swift */; };
 		1F68FCCD1F27289900559232 /* LameConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F68FCCA1F27289900559232 /* LameConverter.m */; };
 		1F8FF1801F306B3C00891F65 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1F8FF1821F306B3C00891F65 /* Localizable.strings */; };
-		1FC538A91F28C5E100AE168C /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC538A81F28C5E100AE168C /* ImagePicker.swift */; };
 		1FD7E40B1F2B4F5600D4D28A /* lame.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FD7E40A1F2B4F5600D4D28A /* lame.framework */; };
 		1FFF64311F0CC94100187090 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FFF64301F0CC94100187090 /* AppDelegate.swift */; };
 		1FFF64381F0CC94100187090 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1FFF64371F0CC94100187090 /* Assets.xcassets */; };
@@ -67,7 +66,6 @@
 		1F8FF1811F306B3C00891F65 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		1F8FF1831F306B4C00891F65 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		1F9F7C581F29B911009E23E3 /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = System/Library/Frameworks/Photos.framework; sourceTree = SDKROOT; };
-		1FC538A81F28C5E100AE168C /* ImagePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		1FD7E40A1F2B4F5600D4D28A /* lame.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = lame.framework; path = VKInstruments/Frameworks/lame.framework; sourceTree = "<group>"; };
 		1FFF642D1F0CC94100187090 /* VKInstruments.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VKInstruments.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FFF64301F0CC94100187090 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -181,7 +179,6 @@
 				1F20EB4C1F0CD25D002A24EB /* VKAuthorization.swift */,
 				1F20EB4F1F0CDC12002A24EB /* ListFunctions */,
 				1F20EB581F0E4461002A24EB /* AudioRecords */,
-				1FC538A81F28C5E100AE168C /* ImagePicker.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -274,7 +271,6 @@
 				1F68FCCD1F27289900559232 /* LameConverter.m in Sources */,
 				1F298A5E1F0F9CCD006CB40A /* AppLib.swift in Sources */,
 				1F68FCC01F27208400559232 /* AudioPresenter.swift in Sources */,
-				1FC538A91F28C5E100AE168C /* ImagePicker.swift in Sources */,
 				1FFF64311F0CC94100187090 /* AppDelegate.swift in Sources */,
 				1F68FCC41F27212800559232 /* AudioModel.swift in Sources */,
 			);
