@@ -21,8 +21,6 @@ class Router: UIViewController {
         
         super.viewDidLoad()
 
-      //  navigationController?.navigationBar.clipsToBounds = true;
-        
         view.backgroundColor = .white
     }
     

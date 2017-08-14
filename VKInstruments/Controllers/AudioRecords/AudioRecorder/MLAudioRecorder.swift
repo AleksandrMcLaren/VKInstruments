@@ -62,7 +62,7 @@ open class MLAudioRecorder {
                         }
     
                     } else {
-    
+                        
                         self?.reset()
                     }
                 }
@@ -197,7 +197,7 @@ open class MLAudioRecorder {
         do {
             try! recordingSession.setCategory(AVAudioSessionCategoryPlayAndRecord, with:.defaultToSpeaker)
             try recordingSession.setActive(true)
-            recordingSession.requestRecordPermission() { [unowned self] allowed in
+            recordingSession.requestRecordPermission() { allowed in
                 
                 if allowed == true {
                     
