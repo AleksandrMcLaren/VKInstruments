@@ -132,11 +132,8 @@ class AudioViewController: UIViewController {
     func longPressing(_ gesture: UILongPressGestureRecognizer) {
        
         if gesture.state == .began {
-
             presenter.startRecordPressed()
-            
         } else if gesture.state == .ended {
-            
             presenter.stopRecordPressed()
         }
     }
