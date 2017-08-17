@@ -19,7 +19,7 @@ protocol RouterNavigations {
     func presentCameraVideoPicker(completion: ((_ fileUrl: URL?) -> Void)?)
 }
 
-class Router: UIViewController, RouterNavigations {
+class Router: UIViewController {
 
     var currentController: UIViewController? = nil
 
@@ -72,7 +72,7 @@ class Router: UIViewController, RouterNavigations {
     }
 }
 
-extension Router {
+extension Router: RouterNavigations {
     
     func openFunctions() {
         
