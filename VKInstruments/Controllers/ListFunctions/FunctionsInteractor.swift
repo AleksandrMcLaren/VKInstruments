@@ -32,31 +32,31 @@ class FunctionsInteractor: FunctionsUseCase {
         
         let photo = Function()
         photo.type = .libriaryPhoto
-        photo.title = "yourPhoto".lzd
+        photo.title = "yourPhoto".lcd
         photo.selected = false
         functions.append(photo)
         
         let video = Function()
         video.type = .libriaryVideo
-        video.title = "yourVideo".lzd
+        video.title = "yourVideo".lcd
         video.selected = false
         functions.append(video)
 
         let cameraVideo = Function()
         cameraVideo.type = .cameraVideo
-        cameraVideo.title = "cameraVideo".lzd
+        cameraVideo.title = "cameraVideo".lcd
         cameraVideo.selected = false
         functions.append(cameraVideo)
         
         let cameraPhoto = Function()
         cameraPhoto.type = .cameraPhoto
-        cameraPhoto.title = "cameraPhoto".lzd
+        cameraPhoto.title = "cameraPhoto".lcd
         cameraPhoto.selected = false
         functions.append(cameraPhoto)
         
         let audio = Function()
         audio.type = .audioRecord
-        audio.title = "audioRecord".lzd
+        audio.title = "audioRecord".lcd
         audio.selected = false
         functions.append(audio)
     }

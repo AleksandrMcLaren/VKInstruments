@@ -9,7 +9,17 @@
 import UIKit
 import MLImagePicker
 
-class Router: UIViewController {
+protocol RouterNavigations {
+    
+    func openFunctions()
+    func presentAudioRecords(fileUrl: URL?, completion: ((_ fileUrl: URL?) -> Void)?)
+    func presentLibriaryPhotoPicker(completion: ((_ fileUrl: URL?) -> Void)?)
+    func presentLibriaryVideoPicker(completion: ((_ fileUrl: URL?) -> Void)?)
+    func presentCameraPhotoPicker(completion: ((_ fileUrl: URL?) -> Void)?)
+    func presentCameraVideoPicker(completion: ((_ fileUrl: URL?) -> Void)?)
+}
+
+class Router: UIViewController, RouterNavigations {
 
     var currentController: UIViewController? = nil
 
@@ -78,7 +88,7 @@ extension Router {
         interactor.output = presenter
         
         openViewController(presenter.view!)
-        title = "add".lzd
+        title = "add".lcd
     }
     
     func presentAudioRecords(fileUrl: URL?, completion: ((_ fileUrl: URL?) -> Void)?) {

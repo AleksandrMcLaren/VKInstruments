@@ -25,7 +25,7 @@ extension UILabel {
 
 extension String {
     
-    var lzd: String {
+    var lcd: String {
         return NSLocalizedString(self, comment: "")
     }
 }
