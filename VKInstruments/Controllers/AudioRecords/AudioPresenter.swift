@@ -40,7 +40,7 @@ class AudioPresenter: AudioPresentation {
     fileprivate let audioRecorder = MLAudioRecorder()
     
     deinit {
-        print(" ")
+       
     }
 
     @objc func needsUpdateView() {

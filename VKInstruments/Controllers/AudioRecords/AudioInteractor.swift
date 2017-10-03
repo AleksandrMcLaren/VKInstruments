@@ -21,7 +21,7 @@ class AudioInteractor: AudioUseCase {
     fileprivate let data: AudioModel = AudioModel()
     
     deinit {
-        print(" ")
+      
     }
     
     func fetchData() {

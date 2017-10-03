@@ -7,4 +7,5 @@ framework module MLImagePicker {
 
 module MLImagePicker.Swift {
     header "MLImagePicker-Swift.h"
+    requires objc
 }

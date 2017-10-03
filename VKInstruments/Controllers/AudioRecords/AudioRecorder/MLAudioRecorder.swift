@@ -96,7 +96,7 @@ open class MLAudioRecorder {
     }
     
     deinit {
-        print(" ")
+        
     }
     
     // MARK: - Control

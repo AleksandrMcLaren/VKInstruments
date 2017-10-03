@@ -33,7 +33,7 @@ class AudioViewController: UIViewController {
     // MARK: - Life cycle
     
     deinit {
-        print(" ")
+      
     }
     
     override func viewDidLoad() {
@@ -41,7 +41,7 @@ class AudioViewController: UIViewController {
         super.viewDidLoad()
 
         view.backgroundColor = .white
-
+        
         timeLabel.font = UIFont.systemFont(ofSize: 50)
         view.addSubview(timeLabel)
         
@@ -91,12 +91,18 @@ class AudioViewController: UIViewController {
         let timeX = (boundsSize.width - timeSize.width) / 2
         timeLabel.frame = CGRect(x: timeX, y: 50, width: boundsSize.width - timeX, height: timeLabel.font.lineHeight)
         
+        var insetBottom: CGFloat = 0;
+        
+        if #available(iOS 11.0, *) {
+            insetBottom = view.safeAreaInsets.bottom;
+        }
+        
         let buttonHeight: CGFloat = 60.0
         let doneWidth = doneButton.titleLabel?.textSize().width
-        doneButton.frame = CGRect(x: (boundsSize.width - doneWidth!) / 2, y: boundsSize.height - buttonHeight, width: doneWidth!, height: buttonHeight)
+        doneButton.frame = CGRect(x: (boundsSize.width - doneWidth!) / 2, y: boundsSize.height - buttonHeight - insetBottom, width: doneWidth!, height: buttonHeight)
         
         let recordWidth: CGFloat = 100.0
-        recordButton.frame = CGRect(x: (boundsSize.width - recordWidth) / 2, y: boundsSize.height - buttonHeight - 40 - recordWidth, width: recordWidth, height: recordWidth)
+        recordButton.frame = CGRect(x: (boundsSize.width - recordWidth) / 2, y: boundsSize.height - buttonHeight - 40 - recordWidth - insetBottom, width: recordWidth, height: recordWidth)
         recordButton.layer.cornerRadius = recordButton.frame.size.width / 2
         
         let indent: CGFloat = 5.0
@@ -104,7 +110,7 @@ class AudioViewController: UIViewController {
         roundView.layer.cornerRadius = roundView.frame.size.width / 2
         
         let resetWidth = resetButton.titleLabel?.textSize().width
-        resetButton.frame = CGRect(x: 30, y: recordButton.frame.origin.y - 20 - buttonHeight, width: resetWidth!, height: buttonHeight)
+        resetButton.frame = CGRect(x: 30, y: recordButton.frame.origin.y - 20 - buttonHeight - insetBottom, width: resetWidth!, height: buttonHeight)
         
         let playWidth = playButton.titleLabel?.textSize().width
         playButton.frame = CGRect(x: boundsSize.width - 30 - playWidth!, y: resetButton.frame.origin.y, width: playWidth!, height: buttonHeight)
