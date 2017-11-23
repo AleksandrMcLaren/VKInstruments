@@ -16,7 +16,7 @@ extension UILabel {
        
         let size = string.boundingRect(with: CGSize(width: CGFloat.greatestFiniteMagnitude, height: .greatestFiniteMagnitude),
                                        options: NSStringDrawingOptions.usesLineFragmentOrigin,
-                                       attributes: [NSFontAttributeName: font],
+                                       attributes: [NSAttributedStringKey.font: font],
                                        context: nil).size
         
         return size

@@ -135,7 +135,7 @@ class AudioViewController: UIViewController {
     
     // MARK: - Actions
 
-    func longPressing(_ gesture: UILongPressGestureRecognizer) {
+    @objc func longPressing(_ gesture: UILongPressGestureRecognizer) {
        
         if gesture.state == .began {
             presenter.startRecordPressed()
@@ -144,17 +144,17 @@ class AudioViewController: UIViewController {
         }
     }
     
-    func playPressed () {
+    @objc func playPressed () {
         
         presenter.playPressed()
     }
     
-    func resetPressed () {
+    @objc func resetPressed () {
         
         presenter.resetPressed()
     }
     
-    func donePressed () {
+    @objc func donePressed () {
         
         presenter.donePressed()
     }

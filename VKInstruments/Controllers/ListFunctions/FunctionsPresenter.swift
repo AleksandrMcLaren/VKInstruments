@@ -24,10 +24,10 @@ protocol FunctionsInteractorOutput: class {
 class FunctionsPresenter: FunctionsPresentation {
 
     weak var view: FunctionsViewController?
-    var interactor = FunctionsInteractor()
+    var interactor: FunctionsInteractor?
 
     func needsUpdateView() {
-        interactor.fetchFunctions()
+        interactor?.fetchFunctions()
     }
     
     func didSelectFunction(_ function: Function) {
@@ -63,35 +63,35 @@ class FunctionsPresenter: FunctionsPresentation {
     func openAudioRecordsFunction(_ function: Function) {
         
         Router.shared.presentAudioRecords(fileUrl: function.fileUrl,  completion: { (fileUrl) in
-            self.interactor.updateFunction(function, fileUrl: fileUrl)
+            self.interactor?.updateFunction(function, fileUrl: fileUrl)
         })
     }
     
     func openLibriaryPhotoFunction(_ function: Function) {
         
         Router.shared.presentLibriaryPhotoPicker(completion: { (fileUrl) in
-            self.interactor.updateFunction(function, fileUrl: fileUrl)
+            self.interactor?.updateFunction(function, fileUrl: fileUrl)
         })
     }
     
     func openLibriaryVideoFunction(_ function: Function) {
         
         Router.shared.presentLibriaryVideoPicker(completion: { (fileUrl) in
-            self.interactor.updateFunction(function, fileUrl: fileUrl)
+            self.interactor?.updateFunction(function, fileUrl: fileUrl)
         })
     }
     
     func openCameraPhotoFunction(_ function: Function) {
         
         Router.shared.presentCameraPhotoPicker(completion: { (fileUrl) in
-            self.interactor.updateFunction(function, fileUrl: fileUrl)
+            self.interactor?.updateFunction(function, fileUrl: fileUrl)
         })
     }
     
     func openCameraVideoFunction(_ function: Function) {
         
         Router.shared.presentCameraVideoPicker(completion: { (fileUrl) in
-            self.interactor.updateFunction(function, fileUrl: fileUrl)
+            self.interactor?.updateFunction(function, fileUrl: fileUrl)
         })
     }
 }
